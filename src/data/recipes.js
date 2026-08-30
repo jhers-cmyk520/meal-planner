@@ -255,6 +255,24 @@ export const RECIPES = [
       'Build bowls with grain, chopped salad, feta, and a lemon drizzle.',
     ],
   },
+  {
+    id: 'chicken-lemon-olives',
+    name: 'Chicken with lemons, olives and potatoes',
+    cuisine: 'Mediterranean',
+    mood: ['comforting', 'hearty'],
+    minutes: 60,
+    effort: 'easy',
+    servings: 4,
+    diet: ['gluten-free', 'dairy-free'],
+    nutrition: { calories: 480, protein: 34, carbs: 28, fat: 25, fiber: 4 },
+    mainIngredients: ['chicken thighs', 'baby potatoes', 'lemon', 'olives', 'garlic'],
+    pairsWith: ['crusty-bread', 'simple-green-salad', 'garlic-green-beans'],
+    steps: [
+      'Toss potatoes with olive oil, salt, pepper, and oregano; roast at 425F for 15 minutes.',
+      'Season chicken with salt, pepper, oregano, and garlic; nestle into the pan with lemon wedges and olives.',
+      'Roast 30-35 minutes more until chicken is golden and cooked through; finish with parsley and a squeeze of lemon.',
+    ],
+  },
 ]
 
 export const RECIPE_BY_ID = Object.fromEntries(RECIPES.map((r) => [r.id, r]))
