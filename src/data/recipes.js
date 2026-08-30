@@ -1,0 +1,261 @@
+// Recipe + side-dish data. Expand freely — the planner reads these shapes:
+//
+//   mood:      which cravings a dish satisfies (see MOODS below)
+//   minutes:   hands-on + cooking time, start to plate
+//   effort:    'easy' | 'medium' | 'involved'
+//   diet:      dietary tags a dish satisfies (see DIETS below)
+//   nutrition: per serving — calories, protein, carbs, fat, fiber (grams)
+//   pairsWith: ids from SIDES that complement this main
+//
+// Keep ids stable and kebab-case; the planner and saved plans reference them.
+
+export const MOODS = [
+  { id: 'comforting', label: 'Comforting', emoji: '\u{1F35B}' },
+  { id: 'light', label: 'Light & fresh', emoji: '\u{1F957}' },
+  { id: 'hearty', label: 'Hearty', emoji: '\u{1F356}' },
+  { id: 'spicy', label: 'Spicy', emoji: '\u{1F336}\u{FE0F}' },
+  { id: 'quick', label: 'Something quick', emoji: '\u{26A1}' },
+  { id: 'special', label: 'A bit special', emoji: '\u{2728}' },
+]
+
+export const DIETS = [
+  { id: 'vegetarian', label: 'Vegetarian' },
+  { id: 'vegan', label: 'Vegan' },
+  { id: 'gluten-free', label: 'Gluten-free' },
+  { id: 'dairy-free', label: 'Dairy-free' },
+  { id: 'high-protein', label: 'High protein' },
+  { id: 'low-carb', label: 'Low carb' },
+]
+
+export const SIDES = [
+  {
+    id: 'garlic-green-beans',
+    name: 'Garlic green beans',
+    minutes: 12,
+    mood: ['light', 'quick'],
+    diet: ['vegetarian', 'vegan', 'gluten-free', 'dairy-free', 'low-carb'],
+    nutrition: { calories: 90, protein: 3, carbs: 9, fat: 5, fiber: 4 },
+  },
+  {
+    id: 'jasmine-rice',
+    name: 'Steamed jasmine rice',
+    minutes: 20,
+    mood: ['comforting', 'hearty'],
+    diet: ['vegetarian', 'vegan', 'gluten-free', 'dairy-free'],
+    nutrition: { calories: 205, protein: 4, carbs: 45, fat: 0, fiber: 1 },
+  },
+  {
+    id: 'simple-green-salad',
+    name: 'Simple green salad',
+    minutes: 8,
+    mood: ['light', 'quick'],
+    diet: ['vegetarian', 'vegan', 'gluten-free', 'dairy-free', 'low-carb'],
+    nutrition: { calories: 110, protein: 2, carbs: 7, fat: 9, fiber: 3 },
+  },
+  {
+    id: 'roasted-broccoli',
+    name: 'Roasted broccoli',
+    minutes: 25,
+    mood: ['hearty', 'light'],
+    diet: ['vegetarian', 'vegan', 'gluten-free', 'dairy-free', 'low-carb', 'high-protein'],
+    nutrition: { calories: 130, protein: 6, carbs: 12, fat: 7, fiber: 5 },
+  },
+  {
+    id: 'mashed-potatoes',
+    name: 'Buttery mashed potatoes',
+    minutes: 30,
+    mood: ['comforting', 'hearty'],
+    diet: ['vegetarian', 'gluten-free'],
+    nutrition: { calories: 240, protein: 4, carbs: 33, fat: 11, fiber: 3 },
+  },
+  {
+    id: 'warm-pita',
+    name: 'Warm pita',
+    minutes: 5,
+    mood: ['quick', 'comforting'],
+    diet: ['vegetarian', 'vegan', 'dairy-free'],
+    nutrition: { calories: 170, protein: 6, carbs: 33, fat: 1, fiber: 2 },
+  },
+  {
+    id: 'cucumber-yogurt',
+    name: 'Cucumber yogurt salad',
+    minutes: 10,
+    mood: ['light', 'quick', 'spicy'],
+    diet: ['vegetarian', 'gluten-free', 'low-carb'],
+    nutrition: { calories: 80, protein: 5, carbs: 8, fat: 3, fiber: 1 },
+  },
+  {
+    id: 'crusty-bread',
+    name: 'Crusty bread',
+    minutes: 5,
+    mood: ['comforting', 'quick', 'special'],
+    diet: ['vegetarian', 'vegan', 'dairy-free'],
+    nutrition: { calories: 160, protein: 5, carbs: 30, fat: 2, fiber: 2 },
+  },
+  {
+    id: 'quinoa-pilaf',
+    name: 'Herbed quinoa pilaf',
+    minutes: 22,
+    mood: ['light', 'hearty'],
+    diet: ['vegetarian', 'vegan', 'gluten-free', 'dairy-free', 'high-protein'],
+    nutrition: { calories: 190, protein: 8, carbs: 30, fat: 4, fiber: 4 },
+  },
+  {
+    id: 'sesame-slaw',
+    name: 'Sesame cabbage slaw',
+    minutes: 12,
+    mood: ['light', 'quick', 'spicy'],
+    diet: ['vegetarian', 'vegan', 'gluten-free', 'dairy-free', 'low-carb'],
+    nutrition: { calories: 120, protein: 3, carbs: 10, fat: 8, fiber: 3 },
+  },
+]
+
+export const RECIPES = [
+  {
+    id: 'weeknight-chicken-stir-fry',
+    name: 'Weeknight chicken stir-fry',
+    cuisine: 'Chinese-ish',
+    mood: ['quick', 'light', 'spicy'],
+    minutes: 25,
+    effort: 'easy',
+    servings: 2,
+    diet: ['gluten-free', 'dairy-free', 'high-protein', 'low-carb'],
+    nutrition: { calories: 420, protein: 38, carbs: 18, fat: 22, fiber: 4 },
+    mainIngredients: ['chicken thigh', 'bell pepper', 'broccoli', 'ginger', 'soy sauce'],
+    pairsWith: ['jasmine-rice', 'sesame-slaw', 'garlic-green-beans'],
+    steps: [
+      'Slice chicken and vegetables; mix a sauce of soy, ginger, garlic, and a little cornstarch.',
+      'Sear chicken in a hot wok until golden, remove.',
+      'Stir-fry vegetables 3-4 minutes, return chicken, add sauce, toss until glossy.',
+    ],
+  },
+  {
+    id: 'creamy-tomato-rigatoni',
+    name: 'Creamy tomato rigatoni',
+    cuisine: 'Italian',
+    mood: ['comforting', 'hearty'],
+    minutes: 30,
+    effort: 'easy',
+    servings: 4,
+    diet: ['vegetarian'],
+    nutrition: { calories: 560, protein: 18, carbs: 78, fat: 20, fiber: 6 },
+    mainIngredients: ['rigatoni', 'canned tomatoes', 'cream', 'garlic', 'parmesan'],
+    pairsWith: ['simple-green-salad', 'crusty-bread', 'roasted-broccoli'],
+    steps: [
+      'Boil pasta until just shy of al dente, reserve a mug of water.',
+      'Simmer garlic, tomatoes, and a splash of cream 10 minutes.',
+      'Toss pasta with sauce and pasta water, finish with parmesan.',
+    ],
+  },
+  {
+    id: 'sheet-pan-salmon',
+    name: 'Sheet-pan salmon & vegetables',
+    cuisine: 'Modern',
+    mood: ['light', 'special', 'quick'],
+    minutes: 28,
+    effort: 'easy',
+    servings: 2,
+    diet: ['gluten-free', 'dairy-free', 'high-protein', 'low-carb'],
+    nutrition: { calories: 460, protein: 36, carbs: 16, fat: 28, fiber: 5 },
+    mainIngredients: ['salmon fillet', 'asparagus', 'cherry tomatoes', 'lemon', 'olive oil'],
+    pairsWith: ['quinoa-pilaf', 'garlic-green-beans', 'simple-green-salad'],
+    steps: [
+      'Heat oven to 220C / 425F.',
+      'Toss vegetables with oil and salt on a sheet pan, roast 10 minutes.',
+      'Nestle salmon in, squeeze lemon over, roast 10-12 minutes more.',
+    ],
+  },
+  {
+    id: 'black-bean-tacos',
+    name: 'Charred black bean tacos',
+    cuisine: 'Mexican',
+    mood: ['quick', 'spicy', 'comforting'],
+    minutes: 20,
+    effort: 'easy',
+    servings: 3,
+    diet: ['vegetarian', 'vegan', 'dairy-free', 'high-protein'],
+    nutrition: { calories: 380, protein: 15, carbs: 55, fat: 11, fiber: 14 },
+    mainIngredients: ['black beans', 'corn tortillas', 'onion', 'cumin', 'lime', 'cilantro'],
+    pairsWith: ['sesame-slaw', 'cucumber-yogurt', 'simple-green-salad'],
+    steps: [
+      'Saute onion with cumin and smoked paprika until soft.',
+      'Add beans with a splash of water, mash lightly, cook until thick.',
+      'Char tortillas over a flame, fill, top with lime and cilantro.',
+    ],
+  },
+  {
+    id: 'chickpea-coconut-curry',
+    name: 'Chickpea & spinach coconut curry',
+    cuisine: 'Indian-ish',
+    mood: ['comforting', 'spicy', 'hearty'],
+    minutes: 35,
+    effort: 'medium',
+    servings: 4,
+    diet: ['vegetarian', 'vegan', 'gluten-free', 'dairy-free', 'high-protein'],
+    nutrition: { calories: 440, protein: 16, carbs: 48, fat: 22, fiber: 12 },
+    mainIngredients: ['chickpeas', 'coconut milk', 'spinach', 'tomato', 'curry spices', 'onion'],
+    pairsWith: ['jasmine-rice', 'warm-pita', 'cucumber-yogurt'],
+    steps: [
+      'Bloom curry spices in oil with onion, ginger, and garlic.',
+      'Add tomato and chickpeas, simmer 10 minutes.',
+      'Stir in coconut milk and spinach, simmer until thickened.',
+    ],
+  },
+  {
+    id: 'braised-short-ribs',
+    name: 'Red wine braised short ribs',
+    cuisine: 'French',
+    mood: ['special', 'hearty', 'comforting'],
+    minutes: 180,
+    effort: 'involved',
+    servings: 4,
+    diet: ['gluten-free', 'dairy-free', 'high-protein'],
+    nutrition: { calories: 680, protein: 42, carbs: 12, fat: 46, fiber: 2 },
+    mainIngredients: ['beef short ribs', 'red wine', 'carrot', 'onion', 'thyme', 'beef stock'],
+    pairsWith: ['mashed-potatoes', 'roasted-broccoli', 'crusty-bread'],
+    steps: [
+      'Sear seasoned ribs on all sides, set aside.',
+      'Soften mirepoix, deglaze with wine, reduce by half.',
+      'Return ribs with stock, braise covered at 160C / 325F for 2.5-3 hours.',
+    ],
+  },
+  {
+    id: 'miso-noodle-soup',
+    name: 'Quick miso noodle soup',
+    cuisine: 'Japanese-ish',
+    mood: ['light', 'quick', 'comforting'],
+    minutes: 15,
+    effort: 'easy',
+    servings: 2,
+    diet: ['vegetarian', 'dairy-free'],
+    nutrition: { calories: 320, protein: 14, carbs: 46, fat: 9, fiber: 5 },
+    mainIngredients: ['ramen noodles', 'miso paste', 'tofu', 'scallion', 'spinach', 'dashi or stock'],
+    pairsWith: ['sesame-slaw', 'cucumber-yogurt'],
+    steps: [
+      'Bring stock to a simmer, whisk in miso off the boil.',
+      'Cook noodles in the broth, add cubed tofu and greens.',
+      'Finish with scallion and a few drops of sesame oil.',
+    ],
+  },
+  {
+    id: 'greek-lemon-chicken-bowls',
+    name: 'Greek lemon chicken bowls',
+    cuisine: 'Greek',
+    mood: ['light', 'hearty'],
+    minutes: 35,
+    effort: 'medium',
+    servings: 4,
+    diet: ['gluten-free', 'high-protein'],
+    nutrition: { calories: 500, protein: 40, carbs: 34, fat: 22, fiber: 6 },
+    mainIngredients: ['chicken breast', 'lemon', 'oregano', 'cucumber', 'tomato', 'feta', 'olive oil'],
+    pairsWith: ['quinoa-pilaf', 'cucumber-yogurt', 'warm-pita', 'simple-green-salad'],
+    steps: [
+      'Marinate chicken in lemon, oregano, garlic, and oil 15 minutes.',
+      'Grill or pan-sear until cooked through, rest and slice.',
+      'Build bowls with grain, chopped salad, feta, and a lemon drizzle.',
+    ],
+  },
+]
+
+export const RECIPE_BY_ID = Object.fromEntries(RECIPES.map((r) => [r.id, r]))
+export const SIDE_BY_ID = Object.fromEntries(SIDES.map((s) => [s.id, s]))

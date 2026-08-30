@@ -1,0 +1,287 @@
+:root {
+  --bg: #faf7f2;
+  --surface: #ffffff;
+  --ink: #24201b;
+  --ink-soft: #6b6357;
+  --line: #e7e0d5;
+  --accent: #c2571f;
+  --accent-soft: #fbe9dd;
+  --good: #2f7d4f;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1b1815;
+    --surface: #262220;
+    --ink: #f2ede4;
+    --ink-soft: #b3a897;
+    --line: #3a342f;
+    --accent: #e8763b;
+    --accent-soft: #3a2a20;
+    --good: #6cc48d;
+    color-scheme: dark;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.55 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
+    sans-serif;
+}
+
+.app {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+}
+
+.app__header h1 {
+  margin: 0 0 4px;
+  font-size: 1.9rem;
+}
+
+.app__header p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.app__body {
+  display: grid;
+  gap: 28px;
+  margin-top: 24px;
+}
+
+@media (min-width: 820px) {
+  .app__body {
+    grid-template-columns: 320px 1fr;
+    align-items: start;
+  }
+}
+
+.planner {
+  display: grid;
+  gap: 16px;
+}
+
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 14px 16px 16px;
+  margin: 0;
+  background: var(--surface);
+}
+
+.panel legend {
+  font-weight: 600;
+  padding: 0 6px;
+}
+
+.chip-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.chip {
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 7px 13px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.chip--active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.slider-row {
+  display: grid;
+  gap: 4px;
+  margin-top: 14px;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+
+.slider-row input {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.reset {
+  justify-self: start;
+  background: none;
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+  border-radius: 8px;
+  padding: 6px 14px;
+  cursor: pointer;
+}
+
+.results > h2 {
+  margin: 0 0 14px;
+  font-size: 1.15rem;
+}
+
+.results__grid {
+  display: grid;
+  gap: 16px;
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+  padding: 18px;
+}
+
+.card--top {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.card__badge {
+  margin: 0 0 4px;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.card h3 {
+  margin: 0 0 2px;
+  font-size: 1.2rem;
+}
+
+.card__meta {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+
+.reasons {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.reasons li {
+  background: var(--accent-soft);
+  color: var(--ink);
+  border-radius: 6px;
+  padding: 3px 8px;
+  font-size: 0.8rem;
+}
+
+.card__section {
+  margin-top: 16px;
+}
+
+.card__section h4 {
+  margin: 0 0 8px;
+  font-size: 0.9rem;
+}
+
+.macros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 0;
+}
+
+.macros > div {
+  text-align: center;
+}
+
+.macros dt {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+}
+
+.macros dd {
+  margin: 2px 0 0;
+  font-weight: 700;
+}
+
+.macros__label {
+  width: 100%;
+  margin: 4px 0 0;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+.sides {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.side {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.87rem;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: var(--bg);
+}
+
+.side--picked {
+  background: var(--accent-soft);
+}
+
+.side__meta {
+  color: var(--ink-soft);
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.ingredients {
+  color: var(--ink-soft);
+  font-size: 0.87rem;
+}
+
+.steps {
+  margin: 8px 0 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 6px;
+  font-size: 0.9rem;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.app__footer {
+  margin-top: 40px;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+
+code {
+  background: var(--accent-soft);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
